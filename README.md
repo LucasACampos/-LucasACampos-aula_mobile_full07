@@ -2,7 +2,8 @@
 Atividade da faculdade impacta
 
 # Como rodar
-Caso esteja usando um emulador ao rodar o projeto da api(https://github.com/uedsonreis/authentication-nestjs) o app ja conseguira acessa-lo.
+Caso esteja usando um emulador, o projeto ja conseguira acessar a api.
+Projeto da api que precisa estar rodando localmente: https://github.com/uedsonreis/authentication-nestjs
 Então é apenas executar o app: 
 npx expo start
 
