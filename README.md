@@ -7,4 +7,4 @@ Projeto da api que precisa estar rodando localmente: https://github.com/uedsonre
 Então é apenas executar o app: 
 npx expo start
 
-Caso não esteja usando o emulador sera necessario mudar as rotas do projeto para o ip da rede local da maquinarodando o projeto da api.
+Caso não esteja usando o emulador sera necessario mudar as rotas do projeto para o ip da rede local da maquina rodando o projeto da api.
