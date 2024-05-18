@@ -1,29 +1,18 @@
 import { Alert, Button, Text, TextInput } from "react-native";
 import styles from "./styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { userService } from "../../../service/user.service";
-import { NavigationProp, useNavigation, useRoute } from "@react-navigation/native";
+import { NavigationProp, useNavigation} from "@react-navigation/native";
 import { User } from "../../../models/user";
 
-export default function UserDetails(){
+export default function UserNew(){
 
     const navigation = useNavigation<NavigationProp<any>>();
-
-    const route = useRoute();
-
-    const { userId } = route.params as any;
 
     const [nome, setNome] = useState("");
     const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
     const [senhaConfirmacao, setSenhaConfimacao] = useState("");
-
-    useEffect(() =>{
-        userService.get(userId).then(userFromDataBase => {
-            setNome(userFromDataBase?.name!);
-            setLogin(userFromDataBase?.username!);
-        })
-    }, [])
     
 
     function salvarModificacoes(){
@@ -33,11 +22,12 @@ export default function UserDetails(){
             return;
         }
 
-        userService.update(
-            userId,
-            nome,
-            login,
-            senha
+        userService.create(
+            {
+                username: login,
+                name: nome,
+                password: senha
+            } as User
         ).then((resultado) => {
 
             if(resultado){
@@ -47,8 +37,6 @@ export default function UserDetails(){
             }
 
         });
-
-        
     }
 
     return(
