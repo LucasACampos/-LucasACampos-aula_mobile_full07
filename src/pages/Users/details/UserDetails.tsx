@@ -14,14 +14,12 @@ export default function UserDetails(){
     const { userId } = route.params as any;
 
     const [nome, setNome] = useState("");
-    const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
     const [senhaConfirmacao, setSenhaConfimacao] = useState("");
 
     useEffect(() =>{
         userService.get(userId).then(userFromDataBase => {
             setNome(userFromDataBase?.name!);
-            setLogin(userFromDataBase?.username!);
         })
     }, [])
     
@@ -36,7 +34,6 @@ export default function UserDetails(){
         userService.update(
             userId,
             nome,
-            login,
             senha
         ).then((resultado) => {
 
@@ -58,12 +55,6 @@ export default function UserDetails(){
                 placeholder="Nome"
                 value={nome}
                 onChangeText={setNome}
-            />
-            <TextInput
-                style={styles.inputText}
-                placeholder="Login"
-                value={login}
-                onChangeText={setLogin}
             />
             <TextInput
                 style={styles.inputText}

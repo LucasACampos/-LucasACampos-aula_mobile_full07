@@ -39,6 +39,7 @@ export default function HomePage() {
           onChangeText={setLogin}
         />
         <TextInput
+          secureTextEntry={true}
           style={styles.inputText}
           placeholder='Senha'
           value={senha}

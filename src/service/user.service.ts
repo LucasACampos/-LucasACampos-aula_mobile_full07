@@ -72,11 +72,11 @@ class UserService {
         }
     }
 
-    public async update(id: number, name: string, username: string, password: string) {
+    public async update(id: number, name: string, password: string) {
         const response = await fetch(`${this.urlBase}/${id}`, {
             method: 'PUT',
             headers: this.getHeaders(),
-            body: JSON.stringify({ name, username, password })
+            body: JSON.stringify({ name, password })
         })
 
         const data = await this.getData(response)
